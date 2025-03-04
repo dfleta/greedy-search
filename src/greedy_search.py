@@ -3,7 +3,9 @@ import random
 
 # estados de USA donde queremos ser escuchados
 needed_states = set(["mt", "wa", "or", "id", "nv", "ut", "ca", "az"])
-added_states = set(["nm", "tx", "ok", "ks", "co", "ne", "sd", "wy", "nd", "ia", "mn", "mo", "ar", "la"])
+added_states = set(
+    ["nm", "tx", "ok", "ks", "co", "ne", "sd", "wy", "nd", "ia", "mn", "mo", "ar", "la"]
+)
 
 needed_states.update(added_states)
 
@@ -20,13 +22,12 @@ stations["kseven"] = set(["ok", "ks", "co"])
 stations["keight"] = set(["ks", "co", "ne"])
 stations["knine"] = set(["ne", "sd", "wy"])
 stations["kten"] = set(["nd", "ia"])
-stations["keleven"] = set([ "mn", "mo", "ar"])
+stations["keleven"] = set(["mn", "mo", "ar"])
 stations["ktwelve"] = set(["la"])
 stations["kthirteen"] = set(["mo", "ar"])
 
 
 def greedy_search_global(stations, needed_states):
-
     covered_states = set()
     stations_needed = []
 
@@ -56,9 +57,9 @@ def greedy_search_global(stations, needed_states):
     # Crear la visualización
     plt.figure(figsize=(10, 6))
     plt.bar(stations_needed, num_states_covered)
-    plt.title('Mejora por estación en cada paso del algoritmo')
-    plt.xlabel('Estaciones seleccionadas')
-    plt.ylabel('Número de estados cubiertos')
+    plt.title("Mejora por estación en cada paso del algoritmo")
+    plt.xlabel("Estaciones seleccionadas")
+    plt.ylabel("Número de estados cubiertos")
     plt.xticks(rotation=45)
 
     plt.tight_layout()
@@ -66,7 +67,6 @@ def greedy_search_global(stations, needed_states):
 
 
 def greedy_search_local(stations, needed_states):
-
     num_uncovered_states = []
     # stations_needed = []
     for _ in range(40):
@@ -83,9 +83,9 @@ def greedy_search_local(stations, needed_states):
 
     plt.figure(figsize=(10, 6))
     plt.bar(range(len(num_uncovered_states)), num_uncovered_states)
-    plt.title('Mínimos locales')
-    plt.xlabel('Iteracion')
-    plt.ylabel('Número de estados sin cubrir')
+    plt.title("Mínimos locales")
+    plt.xlabel("Iteracion")
+    plt.ylabel("Número de estados sin cubrir")
     plt.xticks(rotation=45)
 
     plt.tight_layout()
