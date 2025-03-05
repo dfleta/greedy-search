@@ -11,7 +11,7 @@ Está basado en el ejercicio propuesto en el capítulo 8 _Greedy Algorithms_ del
 - Python ≥ 3.11
 - [uv](https://github.com/astral-sh/uv) (gestor de paquetes de Python)
 
-### Pasos de Instalación
+### Instalación
 
 1. Clonar el repositorio:
 ```bash
@@ -40,6 +40,14 @@ uv sync --group lint
 ### Dependencias Principales
 - matplotlib ≥ 3.10.1
 - ruff ≥ 0.9.9 (para linting, opcional)
+
+### Uso
+
+`uv run src/greedy_search.py`
+
+o
+
+`python3 src/greedy_search.py`
 
 ### Contexto
 - Tenemos un conjunto de estados que necesitan cobertura de radio
