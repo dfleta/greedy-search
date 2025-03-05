@@ -1,7 +1,9 @@
 # Optimización de Cobertura de Estaciones de Radio
 
 ## Descripción del Problema
-Este proyecto aborda un problema clásico de optimización en Inteligencia Artificial conocido como "Set Covering Problem". El objetivo es encontrar el número mínimo de estaciones de radio necesarias para cubrir todos los estados de Estados Unidos (específicamente, los estados del oeste y centro del país).
+Este proyecto aborda un problema clásico de optimización en Inteligencia Artificial conocido como "_Set Covering Problem_". El objetivo es encontrar el número mínimo de estaciones de radio necesarias para cubrir todos los estados de Estados Unidos (específicamente, los estados del oeste y centro del país).
+
+Está basado en el ejercicio propuesto en el capítulo 8 _Greedy Algorithms_ del libro grokking [_Algorithms: An illustrated guide for programmers and other curious people_ de Aditya Y. Bhargava](https://github.com/egonSchiele/grokking_algorithms)
 
 ## Instalación y Configuración
 
