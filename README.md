@@ -15,7 +15,7 @@ Está basado en el ejercicio propuesto en el capítulo 8 _Greedy Algorithms_ del
 
 1. Clonar el repositorio:
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/dfleta/greedy-search.git
 cd greedy-search
 ```
 
@@ -29,12 +29,12 @@ source .venv/bin/activate  # En Linux/MacOS
 
 3. Instalar las dependencias:
 ```bash
-uv pip install .
+uv sync
 ```
 
 4. (Opcional) Instalar dependencias de desarrollo:
 ```bash
-uv pip install ".[lint]"
+uv sync --group lint
 ```
 
 ### Dependencias Principales
