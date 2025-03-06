@@ -76,6 +76,9 @@ La siguiente tabla muestra los estados que cubre cada estación de radio:
 | ktwelve    | Louisiana (LA) |
 | kthirteen  | Missouri (MO), Arkansas (AR) |
 
+![K/W Call Letters in the United States](https://earlyradiohistory.us/kwbigmap.gif)
+*K/W Call Letters in the United States*
+
 ## Implementación
 
 El proyecto implementa dos estrategias diferentes de búsqueda:
