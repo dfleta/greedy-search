@@ -1,7 +1,6 @@
-import plot as plot
 import random
 
-# estados de USA donde queremos ser escuchados
+# estados USA donde queremos ser escuchados
 needed_states = set(["mt", "wa", "or", "id", "nv", "ut", "ca", "az"])
 added_states = set(
     ["nm", "tx", "ok", "ks", "co", "ne", "sd", "wy", "nd", "ia", "mn", "mo", "ar", "la"]
@@ -66,15 +65,3 @@ def greedy_search_local(stations, needed_states):
             # stations_needed.append(station)
         num_uncovered_states.append(len(needed_states - covered_states))
     return num_uncovered_states
-
-
-def main():
-    search_state = greedy_search_global(stations.copy(), needed_states)
-    plot.plot_greedy_search_global(*search_state)
-
-    num_uncovered_states = greedy_search_local(stations.copy(), needed_states)
-    plot.plot_greedy_search_local(num_uncovered_states)
-
-
-if __name__ == "__main__":
-    main()

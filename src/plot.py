@@ -44,7 +44,7 @@ def plot_greedy_search_global(
 
 def plot_greedy_search_local(
     num_uncovered_states,
-):  
+):
     print(f"num states uncovered: {num_uncovered_states}")
 
     plt.figure(figsize=(10, 6))
