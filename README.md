@@ -21,7 +21,10 @@ cd greedy-search
 
 2. Crear y activar un entorno virtual con uv:
 ```bash
+python -m pip install uv
+
 uv venv
+
 source .venv/bin/activate  # En Linux/MacOS
 # o
 .venv\Scripts\activate     # En Windows
@@ -102,6 +105,39 @@ Esta función demuestra el problema de los mínimos locales:
 - La búsqueda ávida global encuentra una solución óptima o cercana a la óptima
 - La búsqueda local demuestra cómo las estrategias no optimizadas pueden quedar atrapadas en soluciones subóptimas
 - Las visualizaciones permiten comparar la efectividad de ambos enfoques
+
+#### Lógica del Algoritmo
+
+1. **Inicialización**:
+   - Mantiene un conjunto `covered_states` para registrar los estados ya cubiertos
+   - Una lista `stations_needed` para almacenar las estaciones seleccionadas
+   - Listas `gradients` y `num_states_covered` para monitorizar el progreso
+
+2. **Bucle Principal**:
+   Mientras existan estados sin cubrir (`covered_states < needed_states`):
+   
+   a. **Selección de la Mejor Estación**:
+      - Para cada estación restante, calcula cuántos nuevos estados cubriría
+      - `new_states = station_states - covered_states`
+      - Selecciona la estación que cubra el mayor número de estados nuevos
+   
+   b. **Actualización del Estado**:
+      - Registra el gradiente (número de nuevos estados cubiertos)
+      - Actualiza el conjunto de estados cubiertos
+      - Añade la estación a la lista de seleccionadas
+      - Elimina la estación seleccionada del conjunto disponible
+
+3. **Visualización**:
+   - Genera un gráfico de barras mostrando:
+     - Eje X: Estaciones seleccionadas en orden
+     - Eje Y: Número total de estados cubiertos en cada paso
+
+#### Características Clave
+- **Optimización Global**: En cada paso, selecciona la mejor opción disponible
+- **Sin Retroceso**: Las decisiones tomadas son definitivas
+- **Monitorización**: Registra el progreso y la efectividad de cada selección
+- **Terminación**: El algoritmo se detiene cuando se cubren todos los estados necesarios
+
 
 ## Referencias
 - [Call Letters in the United States](https://earlyradiohistory.us/kwtrivia.htm)
