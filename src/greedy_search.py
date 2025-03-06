@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+import plot as plot
 import random
 
 # estados de USA donde queremos ser escuchados
@@ -49,49 +49,32 @@ def greedy_search_global(stations, needed_states):
             stations_needed.append(best_station)
             stations.pop(best_station)
 
-    print(f"covered: {covered_states}")
-    print(f"stations: {stations_needed}")
-    print(f"num states covered: {num_states_covered}")
-    print(f"gradients: {gradients}")
-
-    # Crear la visualización
-    plt.figure(figsize=(10, 6))
-    plt.bar(stations_needed, num_states_covered)
-    plt.title("Mejora por estación en cada paso del algoritmo")
-    plt.xlabel("Estaciones seleccionadas")
-    plt.ylabel("Número de estados cubiertos")
-    plt.xticks(rotation=45)
-
-    plt.tight_layout()
-    plt.show()
+    return (stations_needed, num_states_covered, gradients, covered_states)
 
 
 def greedy_search_local(stations, needed_states):
+    NUM_SEARCHES = 40
+    MAX_NUM_STATIONS = 10
     num_uncovered_states = []
     # stations_needed = []
-    for _ in range(40):
+    for _ in range(NUM_SEARCHES):
         covered_states = set()
         stations_names = list(stations.keys())
-        random_stations = random.sample(stations_names, k=10)
+        random_stations = random.sample(stations_names, k=MAX_NUM_STATIONS)
         for station in random_stations:
             covered_states = covered_states | (stations[station])
             # stations_needed.append(station)
         num_uncovered_states.append(len(needed_states - covered_states))
+    return num_uncovered_states
 
-    # print(f"stations: {stations_needed}")
-    print(f"num states uncovered: {num_uncovered_states}")
 
-    plt.figure(figsize=(10, 6))
-    plt.bar(range(len(num_uncovered_states)), num_uncovered_states)
-    plt.title("Mínimos locales")
-    plt.xlabel("Iteracion")
-    plt.ylabel("Número de estados sin cubrir")
-    plt.xticks(rotation=45)
+def main():
+    search_state = greedy_search_global(stations.copy(), needed_states)
+    plot.plot_greedy_search_global(*search_state)
 
-    plt.tight_layout()
-    plt.show()
+    num_uncovered_states = greedy_search_local(stations.copy(), needed_states)
+    plot.plot_greedy_search_local(num_uncovered_states)
 
 
 if __name__ == "__main__":
-    greedy_search_global(stations.copy(), needed_states)
-    greedy_search_local(stations.copy(), needed_states)
+    main()
