@@ -55,9 +55,9 @@ o
 `python3 main.py`
 
 ### Contexto
-- Necesitamos cobertura de radio en un conjunto de estados, todos los situados al oeste del río Mississippi para promocionar el _single «Man of Constant Sorrow»_ de _«The Soggy Bottom Boys»_.
+- Necesitamos cobertura de radio en un conjunto de estados, todos los situados al oeste del río Mississippi para promocionar el disco _country_ de Beyoncé _Cowboy Carter_.
 - Existen varias estaciones de radio, cada una cubriendo diferentes conjuntos de estados.
-- Queremos seleccionar el menor número de estaciones posible que cubran todos los estados requeridos, puesto que nuestro presupuesto es muy limitado. Las estaciones al oeste del Misisipi tienen un código que empieza por la letra `K`.
+- Queremos seleccionar el menor número de estaciones posible que cubran todos los estados requeridos, porque Beyoncé -en modo gano o muero- paga la promoción del disco de su bolsillo. Las estaciones al oeste del Misisipi tienen un código que empieza por la letra `K`.
 
 ### Cobertura de Estaciones
 
