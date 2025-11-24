@@ -2,7 +2,7 @@ import pytest
 from src.greedy_search import find_best_station
 from src.greedy_search import greedy_search_global
 
-
+@pytest.mark.find_best_station
 def test_find_best_station():
     # Estados ya cubiertos
     covered_states = set(["wa", "id"])
@@ -19,7 +19,7 @@ def test_find_best_station():
     assert best_station == "ktwo"  # ktwo cubre 3 nuevos estados
     assert best_gradient == 3  # Gradiente esperado es 3
 
-
+@pytest.mark.greedy_search_global
 def test_greedy_search_global():
     # Estados necesarios
     needed_states = set(["mt", "wa", "or", "id", "nv", "ut", "ca", "az"])
