@@ -27,6 +27,7 @@ stations["kthirteen"] = set(["mo", "ar"])
 
 
 def greedy_search_global(stations, needed_states):
+    stations_remaining = stations.copy()
     covered_states = set()
     stations_needed = []
 
@@ -36,17 +37,17 @@ def greedy_search_global(stations, needed_states):
     while covered_states < needed_states:
         best_gradient = 0
         best_station = ""
-        for station, station_states in stations.items():
+        for station, station_states in stations_remaining.items():
             new_states = station_states - covered_states
             if len(new_states) > best_gradient:
                 best_station = station
                 best_gradient = len(new_states)
         if best_station:
-            gradients.append(len(stations[best_station] - covered_states))
-            covered_states = covered_states | (stations[best_station])
+            gradients.append(len(stations_remaining[best_station] - covered_states))
+            covered_states = covered_states | (stations_remaining[best_station])
             num_states_covered.append(len(covered_states))
             stations_needed.append(best_station)
-            stations.pop(best_station)
+            stations_remaining.pop(best_station)
 
     return (stations_needed, num_states_covered, gradients, covered_states)
 
