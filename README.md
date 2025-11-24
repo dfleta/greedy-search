@@ -22,6 +22,7 @@ cd greedy-search
 ```
 
 2. Crear y activar un entorno virtual con uv:
+
 ```bash
 python -m pip install uv
 
@@ -39,11 +40,20 @@ uv sync
 
 4. (Opcional) Instalar dependencias de desarrollo:
 ```bash
-uv sync --group lint
+uv sync --all-groups
+```
+
+o 
+
+```bash
+uv add --group dev
 ```
 
 ### Dependencias Principales
 - matplotlib ≥ 3.10.1
+
+#### Dependencias de desarrollo
+- pytest >= 9.0.1
 - ruff ≥ 0.9.9 (para linting, opcional)
 
 ### Uso
@@ -53,6 +63,17 @@ uv sync --group lint
 o
 
 `python3 main.py`
+
+### Testing
+
+`uv run pytest`
+
+Con _markers_ listados en [pyproject.toml](./pyproject.toml)
+
+`uv run pytest -m "greedy_search_global"`
+
+`uv run pytest -m "find_best_station"`
+
 
 ### Contexto
 - Necesitamos cobertura de radio en un conjunto de estados, todos los situados al oeste del río Mississippi para promocionar el disco _country_ de Beyoncé _Cowboy Carter_.
