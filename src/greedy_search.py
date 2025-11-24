@@ -47,7 +47,7 @@ def greedy_search_global(stations, needed_states):
             covered_states = covered_states | (stations_remaining[best_station])
             num_states_covered.append(len(covered_states))
             stations_needed.append(best_station)
-            stations_remaining.pop(best_station)
+            del stations_remaining[best_station]
 
     return (stations_needed, num_states_covered, gradients, covered_states)
 
