@@ -30,10 +30,10 @@ def find_best_station(stations, covered_states):
     best_station = ""
     best_gradient = 0
     for station, station_states in stations.items():
-            new_states = station_states - covered_states
-            if len(new_states) > best_gradient:
-                best_station = station
-                best_gradient = len(new_states)
+        new_states = station_states - covered_states
+        if len(new_states) > best_gradient:
+            best_station = station
+            best_gradient = len(new_states)
     return best_station, best_gradient
 
 
@@ -46,12 +46,13 @@ def greedy_search_global(stations, needed_states):
     num_states_covered = []
 
     while covered_states < needed_states:
-        
-        best_station, best_gradient = find_best_station(stations_remaining, covered_states)
-        
+        best_station, best_gradient = find_best_station(
+            stations_remaining, covered_states
+        )
+
         if best_station:
             gradients.append(best_gradient)
-            covered_states |= (stations_remaining[best_station])
+            covered_states |= stations_remaining[best_station]
             num_states_covered.append(len(covered_states))
             stations_needed.append(best_station)
             del stations_remaining[best_station]
