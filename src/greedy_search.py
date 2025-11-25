@@ -27,13 +27,12 @@ stations["kthirteen"] = set(["mo", "ar"])
 
 
 def find_best_station(stations, covered_states):
-    best_station = ""
-    best_gradient = 0
-    for station, station_states in stations.items():
-        new_states = station_states - covered_states
-        if len(new_states) > best_gradient:
-            best_station = station
-            best_gradient = len(new_states)
+    stations_and_gradients = {
+        station: len(station_states - covered_states)
+        for station, station_states in stations.items()
+    }
+    best_station = max(stations_and_gradients, key=stations_and_gradients.get, default=0)
+    best_gradient = stations_and_gradients[best_station]
     return best_station, best_gradient
 
 
