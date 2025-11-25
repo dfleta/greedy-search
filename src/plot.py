@@ -49,7 +49,7 @@ def plot_greedy_search_local(
 
     plt.figure(figsize=(10, 6))
     plt.bar(range(len(num_uncovered_states)), num_uncovered_states)
-    plt.title("Mínimos locales")
+    plt.title("Mínimos locales en la búsqueda local")
     plt.xlabel("Iteracion")
     plt.ylabel("Número de estados sin cubrir")
     plt.xticks(rotation=45)
