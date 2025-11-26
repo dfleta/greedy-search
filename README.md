@@ -13,6 +13,19 @@ Está basado en el ejercicio propuesto en el capítulo 8 _Greedy Algorithms_ del
 - Python ≥ 3.11
 - [uv](https://github.com/astral-sh/uv) (gestor de paquetes de Python)
 
+### Tkinter
+
+`plt.show()` con Python 3.12 necesita un backend interactivo (TkAgg, Qt5Agg, Gtk3Agg) y una librería GUI instalada.
+
+En Linux, por ejemplo:
+
+`sudo apt-get install -y python3-tk` para TkAgg
+
+o 
+
+`pip install PyQt5` para Qt5Agg
+
+
 ### Instalación
 
 1. Clonar el repositorio:

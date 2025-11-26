@@ -27,13 +27,14 @@ stations["kthirteen"] = set(["mo", "ar"])
 
 
 def find_best_station(stations, covered_states):
-    best_station = ""
-    best_gradient = 0
-    for station, station_states in stations.items():
-        new_states = station_states - covered_states
-        if len(new_states) > best_gradient:
-            best_station = station
-            best_gradient = len(new_states)
+    stations_and_gradients = {
+        station: len(station_states - covered_states)
+        for station, station_states in stations.items()
+    }
+    best_station = max(
+        stations_and_gradients, key=stations_and_gradients.get, default=0
+    )
+    best_gradient = stations_and_gradients[best_station]
     return best_station, best_gradient
 
 
@@ -51,10 +52,10 @@ def greedy_search_global(stations, needed_states):
         )
 
         if best_station:
-            gradients.append(best_gradient)
             covered_states |= stations_remaining[best_station]
-            num_states_covered.append(len(covered_states))
             stations_needed.append(best_station)
+            num_states_covered.append(len(covered_states))
+            gradients.append(best_gradient)
             del stations_remaining[best_station]
 
     return (stations_needed, num_states_covered, gradients, covered_states)
@@ -70,7 +71,7 @@ def greedy_search_local(stations, needed_states):
         stations_names = list(stations.keys())
         random_stations = random.sample(stations_names, k=MAX_NUM_STATIONS)
         for station in random_stations:
-            covered_states = covered_states | (stations[station])
+            covered_states |= (stations[station])
             # stations_needed.append(station)
         num_uncovered_states.append(len(needed_states - covered_states))
     return num_uncovered_states
