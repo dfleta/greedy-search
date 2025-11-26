@@ -71,6 +71,4 @@ def test_greedy_search_global():
     # Verificar que los gradientes sean consistentes
     assert all(gradient > 0 for gradient in gradients)
 
-    from functools import reduce
-
     assert gradients == sorted(gradients, reverse=True)
