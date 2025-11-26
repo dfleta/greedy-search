@@ -23,9 +23,9 @@ def test_find_best_station():
 
 @pytest.mark.find_best_station
 def test_find_best_stations():
-    '''
+    """
     En este caso, tanto "kone" como "ktwo" cubren 3 nuevos estados cada una.
-    '''
+    """
     covered_states = set()
 
     # Estaciones y estados que cubren
@@ -44,7 +44,7 @@ def test_find_best_stations():
 @pytest.mark.greedy_search_global
 def test_greedy_search_global():
     # Estados necesarios
-    needed_states = set([ "id", "nv", "ut", "mt", "wa", "or", "ca", "az"])
+    needed_states = set(["id", "nv", "ut", "mt", "wa", "or", "ca", "az"])
 
     # Estaciones y estados que cubren
     stations = {
@@ -70,3 +70,7 @@ def test_greedy_search_global():
 
     # Verificar que los gradientes sean consistentes
     assert all(gradient > 0 for gradient in gradients)
+
+    from functools import reduce
+
+    assert gradients == sorted(gradients, reverse=True)
