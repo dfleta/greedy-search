@@ -71,7 +71,7 @@ def greedy_search_local(stations, needed_states):
         stations_names = list(stations.keys())
         random_stations = random.sample(stations_names, k=MAX_NUM_STATIONS)
         for station in random_stations:
-            covered_states = covered_states | (stations[station])
+            covered_states |= (stations[station])
             # stations_needed.append(station)
         num_uncovered_states.append(len(needed_states - covered_states))
     return num_uncovered_states
